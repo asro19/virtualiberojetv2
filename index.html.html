@@ -574,6 +574,71 @@
             color: var(--iberojet-blue);
         }
         
+        /* Sección Documentación */
+        .documentation-section {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: var(--iberojet-blue);
+            margin-bottom: 8px;
+        }
+        
+        .form-group input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--iberojet-green);
+            box-shadow: 0 0 0 3px rgba(28, 156, 140, 0.2);
+        }
+        
+        .login-logo {
+            height: 80px;
+            margin-bottom: 30px;
+        }
+        
+        .login-btn {
+            background-color: var(--iberojet-green);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            background-color: var(--iberojet-blue);
+            transform: translateY(-2px);
+        }
+        
         /* Pie de página */
         footer {
             background-color: var(--iberojet-blue);
@@ -761,18 +826,19 @@
                 No estamos afiliados a Iberojet Airlines. Si buscas la aerolínea comercial real, 
                 visita <a href="https://www.iberojet.es" class="modal-link" target="_blank">www.iberojet.es</a>
             </p>
-            <button class="modal-btn" id="modal-close-btn">Entendido</button>
+            <button class="modal-btn" id="modal-close-btn">De acuerdo</button>
         </div>
     </div>
 
     <header>
         <nav>
-            <img src="https://media.discordapp.net/attachments/1359232940231491817/1359233082758267052/image-removebg-preview_3.png?ex=67f8b634&is=67f764b4&hm=ff039e6d7e8b080dc4601dcc8b4a48e05385e5fce55ca91dfadaf850f48486d9&=&format=webp&quality=lossless" alt="Iberojet Virtual" class="logo">
+            <img src="https://drive.google.com/uc?export=view&id=1XyZFQR0Wi48N1ymLISxeHqijvmdVTWfM" alt="Iberojet Virtual" class="logo">
             <ul class="nav-links">
                 <li><a href="#" class="nav-link active" data-section="inicio"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
                 <li><a href="#" class="nav-link" data-section="nosotros"><i class="fas fa-users"></i> <span>Nosotros</span></a></li>
                 <li><a href="#" class="nav-link" data-section="flota"><i class="fas fa-plane"></i> <span>Flota</span></a></li>
                 <li><a href="#" class="nav-link" data-section="crew"><i class="fas fa-user"></i> <span>Crew</span></a></li>
+                <li><a href="#" class="nav-link" data-section="documentacion"><i class="fas fa-file-alt"></i> <span>Documentación</span></a></li>
             </ul>
         </nav>
     </header>
@@ -781,7 +847,7 @@
         <!-- Sección Inicio -->
         <div id="inicio-content" class="section active">
             <div class="hero-section">
-                <img src="https://media.discordapp.net/attachments/1359232940231491817/1359233082758267052/image-removebg-preview_3.png?ex=67f8b634&is=67f764b4&hm=ff039e6d7e8b080dc4601dcc8b4a48e05385e5fce55ca91dfadaf850f48486d9&=&format=webp&quality=lossless" alt="Iberojet Virtual" class="logo-hero">
+                <img src="https://drive.google.com/uc?export=view&id=1XyZFQR0Wi48N1ymLISxeHqijvmdVTWfM" alt="Iberojet Virtual" class="logo-hero">
             </div>
             
             <!-- Welcome Section -->
@@ -848,6 +914,18 @@
                     <h3>Asier Roset</h3>
                     <div class="position">CO-CEO</div>
                     <p>Especialista en operaciones y gestión de flota. Piloto virtual de A320 y entusiasta de la aviación comercial.</p>
+                </div>
+                <div class="team-member">
+                    <div class="initials-circle">E</div>
+                    <h3>Èric Lubiano</h3>
+                    <div class="position">Responsable de Training</div>
+                    <p>Estudiante de ATPL y encargado de la formación y capacitación de nuestros pilotos virtuales.</p>
+                </div>
+                <div class="team-member">
+                    <div class="initials-circle">D</div>
+                    <h3>Daniel Reques</h3>
+                    <div class="position">Encargado de Manuales</div>
+                    <p>Experto en A320 y responsable de la documentación y manuales de operaciones de la aerolínea.</p>
                 </div>
             </div>
         </div>
@@ -964,6 +1042,24 @@
             </div>
         </div>
 
+        <!-- Sección Documentación -->
+        <div id="documentacion-content" class="section">
+            <div class="documentation-section">
+                <img src="https://drive.google.com/uc?export=view&id=1j-YqqV1QI58zDMOfoXL9dniiJIHBPy13" alt="Iberojet Virtual" class="login-logo">
+                <form class="login-form" id="login-form">
+                    <div class="form-group">
+                        <label for="indicativo">Indicativo</label>
+                        <input type="text" id="indicativo" placeholder="Introduce tu indicativo">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" placeholder="Introduce tu contraseña">
+                    </div>
+                    <button type="submit" class="login-btn">Acceder</button>
+                </form>
+            </div>
+        </div>
+
         <!-- Sección Registro -->
         <div id="registro-content" class="section">
             <h2><b>Proceso de Registro</b></h2>
@@ -1026,11 +1122,9 @@
 
     <footer>
         <div class="footer-content">
-            <img src="https://media.discordapp.net/attachments/1359232940231491817/1359233082758267052/image-removebg-preview_3.png?ex=67f8b634&is=67f764b4&hm=ff039e6d7e8b080dc4601dcc8b4a48e05385e5fce55ca91dfadaf850f48486d9&=&format=webp&quality=lossless" alt="Iberojet Virtual" style="height: 50px; margin-bottom: 20px;">
+            <img src="https://drive.google.com/uc?export=view&id=1XyZFQR0Wi48N1ymLISxeHqijvmdVTWfM" alt="Iberojet Virtual" style="height: 50px; margin-bottom: 20px;">
             <div class="social-links">
                 <a href="https://discord.gg/j2QxEkJMQA" class="social-link" target="_blank"><i class="fab fa-discord"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="copyright">© 2025 Iberojet Virtual. Todos los derechos reservados.</p>
         </div>
@@ -1084,6 +1178,18 @@
             
             // Remover clase active de todos los links de navegación
             document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+        });
+        
+        // Validación de login
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            
+            if(password === 'iberojet') {
+                window.location.href = 'https://sites.google.com/view/crew-eve/inicio';
+            } else {
+                alert('Contraseña incorrecta. Por favor, inténtalo de nuevo.');
+            }
         });
     </script>
 </body>
