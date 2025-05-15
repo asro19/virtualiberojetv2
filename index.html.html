@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Iberojet - Aerolínea Virtual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Fuente SF Pro de Apple */
@@ -146,7 +147,7 @@
         }
         
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://cdn.flightsim.to/images/27/fenix-a320-v2---iberojet--evelop-ec-lzd-8kcabin-textures-197833-1737999182-gnHXf.jpg?width=1400');
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://photos.flightaware.com/photos/retriever/3fa264b9c271a2e18f0a390fc9be3e213dd05ed1');
             background-size: cover;
             background-position: center;
             height: 70vh;
@@ -157,13 +158,6 @@
             align-items: center;
             position: relative;
             margin-bottom: 40px;
-        }
-        
-        .logo-hero {
-            height: 180px;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
         
         .welcome-section {
@@ -193,7 +187,7 @@
             padding: 15px 30px;
             border-radius: 30px;
             font-size: 16px;
-            cursor: pointer;
+            cursor: button;
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
@@ -242,6 +236,7 @@
         
         .stat-number {
             font-size: 28px;
+            font-weight: 6
             font-weight: 600;
             color: var(--iberojet-blue);
             margin-bottom: 5px;
@@ -467,11 +462,18 @@
         }
         
         /* Sección Flota */
-        .fleet-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        .fleet-container {
+            display: flex;
+            flex-direction: column;
             gap: 30px;
             margin-bottom: 40px;
+        }
+        
+        .fleet-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
         
         .aircraft-card {
@@ -480,6 +482,9 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            width: calc(50% - 15px);
+            max-width: 500px;
+            min-width: 350px;
         }
         
         .aircraft-card:hover {
@@ -727,10 +732,6 @@
                 width: 100%;
             }
             
-            .logo-hero {
-                height: 140px;
-            }
-            
             .logo {
                 height: 35px;
             }
@@ -740,8 +741,14 @@
                 min-height: 400px;
             }
             
-            .fleet-gallery {
-                grid-template-columns: 1fr;
+            .fleet-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .aircraft-card {
+                width: 100%;
+                max-width: 100%;
             }
             
             .stats-container {
@@ -765,6 +772,10 @@
             .stats-container {
                 grid-template-columns: 1fr;
             }
+            
+            .aircraft-card {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
@@ -784,7 +795,7 @@
 
     <header>
         <nav>
-            <img src="https://drive.google.com/uc?export=view&id=1XyZFQR0Wi48N1ymLISxeHqijvmdVTWfM" alt="Virtual Iberojet" class="logo">
+            <img src="https://cdn.flightsim.to/images/27/virtual-iberojet-eve-efb-wallpaper--fenix-a320-v2-b2-918529-1747066975-FAn5z.jpg?width=1400" alt="Virtual Iberojet" class="logo">
             <ul class="nav-links">
                 <li><a href="#" class="nav-link active" data-section="inicio"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
                 <li><a href="#" class="nav-link" data-section="nosotros"><i class="fas fa-users"></i> <span>Nosotros</span></a></li>
@@ -798,7 +809,7 @@
         <!-- Sección Inicio -->
         <div id="inicio-content" class="section active">
             <div class="hero-section">
-                <img src="https://drive.google.com/uc?export=view&id=1XyZFQR0Wi48N1ymLISxeHqijvmdVTWfM" alt="Virtual Iberojet" class="logo-hero">
+                <!-- Logo removido según solicitud -->
             </div>
             
             <!-- Welcome Section -->
@@ -845,7 +856,7 @@
                 <p>Formamos parte de una comunidad apasionada por la aviación, donde podrás encontrar vuelos regulares y charters. Desde aquí conectamos con una gran variedad de destinos, ofreciendo la oportunidad de explorar los cielos con nuestra versátil flota.</p>
                 
                 <h3>Nuestra Filosofía</h3>
-                <p>Virtual Iberojet es un proyecto creado por y para entusiastas de la aviación, buscando ofrecer la experiencia más realista posible en simulación de vuelo. Nuestros pilotos siguen procedimientos profesionales y utilizan herramientas como ACARS para la gestión de vuelos.</p>
+                <p>Virtual Iberojet es un proyecto creado por y para entusiastas de la aviación, buscando ofrecer la experiencia más realista posible en simulación de vuelo. Nuestros pilotos siguen procedimientos profesionales y utilizamos herramientas como ACARS para la gestión de vuelos.</p>
                 
                 <p>Promovemos el aprendizaje continuo, el respeto por los procedimientos aéreos y el compañerismo entre nuestros miembros. Organizamos eventos regulares y sesiones de formación para mejorar las habilidades de nuestros pilotos.</p>
             </div>
@@ -868,22 +879,22 @@
                     <p>Especialista en operaciones y gestión de flota. Piloto virtual de A320 y entusiasta de la aviación comercial.</p>
                 </div>
                 <div class="team-member">
-                    <div class="initials-circle">G</div>
-                    <h3>Gonzalo Iribarren</h3>
-                    <div class="position">Piloto</div>
-                    <p>Piloto virtual de Airbus y entusiasta de la aviación con amplia experiencia en simuladores de vuelo.</p>
-                </div>
-                <div class="team-member">
                     <div class="initials-circle">È</div>
                     <h3>Èric Lubiano</h3>
-                    <div class="position">Responsable de Documentación</div>
-                    <p>Experto en A320 y responsable de la documentación y manuales de operaciones de la aerolínea.</p>
+                    <div class="position">Jefe de Training</div>
+                    <p>Experto en A320 y responsable de la formación y entrenamiento de los pilotos de la aerolínea.</p>
                 </div>
                 <div class="team-member">
                     <div class="initials-circle">D</div>
                     <h3>Daniel Reques</h3>
-                    <div class="position">Responsable de SOP</div>
+                    <div class="position">Responsable de Procedimientos</div>
                     <p>Encargado de los procedimientos operativos estándar de la aerolínea.</p>
+                </div>
+                <div class="team-member">
+                    <div class="initials-circle">G</div>
+                    <h3>Gonzalo Iribarren</h3>
+                    <div class="position">Jefe de Relaciones Públicas</div>
+                    <p>Responsable de comunicación y relaciones con la comunidad de pilotos virtuales.</p>
                 </div>
             </div>
         </div>
@@ -892,90 +903,96 @@
         <div id="flota-content" class="section">
             <h2><b>Nuestra Flota</b></h2>
             
-            <div class="fleet-gallery">
-                <!-- Airbus A320-200 -->
-                <div class="aircraft-card">
-                    <img src="https://cdn.flightsim.to/images/27/fenix-a320-v2---iberojet--evelop-ec-lzd-8kcabin-textures-197833-1737999182-gnHXf.jpg?width=1400" alt="Virtual Iberojet A320-200" class="aircraft-image">
-                    <div class="aircraft-info">
-                        <h3>Airbus A320-200</h3>
-                        <div class="aircraft-details">
-                            <div class="detail-item">
-                                <div class="detail-label">En servicio</div>
-                                <div class="detail-value">1</div>
+            <div class="fleet-container">
+                <!-- Primera fila -->
+                <div class="fleet-row">
+                    <!-- Airbus A320-200 -->
+                    <div class="aircraft-card">
+                        <img src="https://cdn.flightsim.to/images/27/fenix-a320-v2---iberojet--evelop-ec-lzd-8kcabin-textures-197833-1737999182-gnHXf.jpg?width=1400" alt="Virtual Iberojet A320-200" class="aircraft-image">
+                        <div class="aircraft-info">
+                            <h3>Airbus A320-200</h3>
+                            <div class="aircraft-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">En servicio</div>
+                                    <div class="detail-value">1</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Configuración</div>
+                                    <div class="detail-value">180 asientos</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Alcange</div>
+                                    <div class="detail-value">3,300 nm</div>
+                                </div>
                             </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Configuración</div>
-                                <div class="detail-value">180 asientos</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Alcance</div>
-                                <div class="detail-value">3,300 nm</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Airbus A330-300 -->
+                    <div class="aircraft-card">
+                        <img src="https://freeware.aerosoft.com/forum/screenshots/monthly_03_2021/2021-3-30_21-32-16-735.png.b1dca34c8a2470a0cf0ab342e6bf49e3.png" alt="Virtual Iberojet A330-300" class="aircraft-image">
+                        <div class="aircraft-info">
+                            <h3>Airbus A330-300</h3>
+                            <div class="aircraft-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">En servicio</div>
+                                    <div class="detail-value">2</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Configuración</div>
+                                    <div class="detail-value">388 asientos</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Alcange</div>
+                                    <div class="detail-value">6,350 nm</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Airbus A330-300 -->
-                <div class="aircraft-card">
-                    <img src="https://freeware.aerosoft.com/forum/screenshots/monthly_03_2021/2021-3-30_21-32-16-735.png.b1dca34c8a2470a0cf0ab342e6bf49e3.png" alt="Virtual Iberojet A330-300" class="aircraft-image">
-                    <div class="aircraft-info">
-                        <h3>Airbus A330-300</h3>
-                        <div class="aircraft-details">
-                            <div class="detail-item">
-                                <div class="detail-label">En servicio</div>
-                                <div class="detail-value">2</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Configuración</div>
-                                <div class="detail-value">388 asientos</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Alcance</div>
-                                <div class="detail-value">6,350 nm</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Airbus A330-900 -->
-                <div class="aircraft-card">
-                    <img src="https://cdn.flightsim.to/images/27/iberojet-a330neo--8k--4k--fleet-pack-564148-1738967379-CXHvt.jpg?width=1400" alt="Virtual Iberojet A330-900" class="aircraft-image">
-                    <div class="aircraft-info">
-                        <h3>Airbus A330-900</h3>
-                        <div class="aircraft-details">
-                            <div class="detail-item">
-                                <div class="detail-label">En servicio</div>
-                                <div class="detail-value">2</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Configuración</div>
-                                <div class="detail-value">310 asientos</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Alcance</div>
-                                <div class="detail-value">7,200 nm</div>
+                
+                <!-- Segunda fila -->
+                <div class="fleet-row">
+                    <!-- Airbus A330-900 -->
+                    <div class="aircraft-card">
+                        <img src="https://cdn.flightsim.to/images/27/iberojet-a330neo--8k--4k--fleet-pack-564148-1738967379-CXHvt.jpg?width=1400" alt="Virtual Iberojet A330-900" class="aircraft-image">
+                        <div class="aircraft-info">
+                            <h3>Airbus A330-900</h3>
+                            <div class="aircraft-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">En servicio</div>
+                                    <div class="detail-value">2</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Configuración</div>
+                                    <div class="detail-value">310 asientos</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Alcange</div>
+                                    <div class="detail-value">7,200 nm</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Airbus A350-900 -->
-                <div class="aircraft-card">
-                    <img src="https://images.prismic.io/evelop-ezycommerce/d9661829-93a2-436b-a557-794f13b05bf4_IBEROJET+A350.jpg?auto=compress,format&rect=0,183,1920,600&w=1600&h=500" alt="Virtual Iberojet A350-900" class="aircraft-image">
-                    <div class="aircraft-info">
-                        <h3>Airbus A350-900</h3>
-                        <div class="aircraft-details">
-                            <div class="detail-item">
-                                <div class="detail-label">En servicio</div>
-                                <div class="detail-value">2</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Configuración</div>
-                                <div class="detail-value">316 asientos</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Alcance</div>
-                                <div class="detail-value">8,100 nm</div>
+                    
+                    <!-- Airbus A350-900 -->
+                    <div class="aircraft-card">
+                        <img src="https://media.invisioncic.com/c334187/monthly_2024_04/A350_xp11-2024-04-1723_57_59.png.75d3aa55e49a5743fba3b30b001c72fb.png" alt="Virtual Iberojet A350-900" class="aircraft-image">
+                        <div class="aircraft-info">
+                            <h3>Airbus A350-900</h3>
+                            <div class="aircraft-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">En servicio</div>
+                                    <div class="detail-value">2</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Configuración</div>
+                                    <div class="detail-value">316 asientos</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Alcange</div>
+                                    <div class="detail-value">8,100 nm</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -986,7 +1003,7 @@
         <!-- Sección Crew -->
         <div id="crew-content" class="section">
             <div class="crew-section">
-                <img src="https://drive.google.com/uc?export=view&id=1j-YqqV1QI58zDMOfoXL9dniiJIHBPy13" alt="Virtual Iberojet" class="login-logo">
+                <img src="https://cdn.flightsim.to/images/27/virtual-iberojet-eve-efb-wallpaper--fenix-a320-v2-b2-918529-1747066967-70Yy5.jpg?width=1400" alt="Virtual Iberojet" class="login-logo">
                 <form class="login-form" id="login-form">
                     <div class="form-group">
                         <label for="indicativo">Indicativo</label>
@@ -1063,7 +1080,7 @@
 
     <footer>
         <div class="footer-content">
-            <img src="https://drive.google.com/uc?export=view&id=1XyZFQR0Wi48N1ymLISxeHqijvmdVTWfM" alt="Virtual Iberojet" style="height: 50px; margin-bottom: 20px;">
+            <img src="https://cdn.flightsim.to/images/27/virtual-iberojet-eve-efb-wallpaper--fenix-a320-v2-b2-918529-1747066975-FAn5z.jpg?width=1400" alt="Virtual Iberojet" style="height: 50px; margin-bottom: 20px;">
             <div class="social-links">
                 <a href="https://discord.gg/j2QxEkJMQA" class="social-link" target="_blank"><i class="fab fa-discord"></i></a>
             </div>
