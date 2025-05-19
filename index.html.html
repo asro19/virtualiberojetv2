@@ -25,6 +25,7 @@
         @font-face {
             font-family: 'SF Pro Display';
             src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff') format('woff');
+            font-weight: 6
             font-weight: 600;
             font-style: normal;
         }
@@ -127,7 +128,7 @@
         .section {
             display: none;
             animation: fadeIn 0.5s ease;
-        }
+}
         
         .section.active {
             display: block;
@@ -236,7 +237,6 @@
         
         .stat-number {
             font-size: 28px;
-            font-weight: 6
             font-weight: 600;
             color: var(--iberojet-blue);
             margin-bottom: 5px;
@@ -400,7 +400,7 @@
             box-shadow: none;
         }
         
-        /* Sección Nosotros - Estilo Apple */
+        /* Sección Equipo Directivo - Estilo Apple */
         .team-container {
             display: flex;
             justify-content: center;
@@ -596,6 +596,70 @@
             transform: translateY(-2px);
         }
         
+        /* Sección Aerolínea */
+        .airline-section {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .airline-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .airline-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .airline-tab.active {
+            color: var(--iberojet-blue);
+            border-bottom: 3px solid var(--iberojet-green);
+        }
+        
+        .airline-tab:hover {
+            color: var(--iberojet-green);
+        }
+        
+        .airline-tab-content {
+            display: none;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .airline-tab-content.active {
+            display: block;
+        }
+        
+        .airline-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .api-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .api-title {
+            font-size: 20px;
+            color: var(--iberojet-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
         /* Pie de página */
         footer {
             background-color: var(--iberojet-blue);
@@ -766,6 +830,16 @@
             .welcome-text {
                 font-size: 16px;
             }
+            
+            .airline-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .airline-tab {
+                flex: 1 0 auto;
+                text-align: center;
+                padding: 10px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -775,6 +849,10 @@
             
             .aircraft-card {
                 min-width: 100%;
+            }
+            
+            .airline-iframe {
+                height: 400px;
             }
         }
     </style>
@@ -786,7 +864,7 @@
             <h3 class="modal-title">Aviso importante</h3>
             <p class="modal-text">
                 Virtual Iberojet es un proyecto sin ánimo de lucro creado por entusiastas de la aviación. 
-                No estamos afiliados a Iberojet Airlines. Si buscas la aerolínea comercial real, 
+                No estamos afiliados to Iberojet Airlines. Si buscas la aerolínea comercial real, 
                 visita <a href="https://www.iberojet.es" class="modal-link" target="_blank">www.iberojet.es</a>
             </p>
             <button class="modal-btn" id="modal-close-btn">De acuerdo</button>
@@ -798,7 +876,8 @@
             <img src="https://cdn.flightsim.to/images/27/virtual-iberojet-eve-efb-wallpaper--fenix-a320-v2-b2-918529-1747066975-FAn5z.jpg?width=1400" alt="Virtual Iberojet" class="logo">
             <ul class="nav-links">
                 <li><a href="#" class="nav-link active" data-section="inicio"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
-                <li><a href="#" class="nav-link" data-section="nosotros"><i class="fas fa-users"></i> <span>Nosotros</span></a></li>
+                <li><a href="#" class="nav-link" data-section="equipo-directivo"><i class="fas fa-users"></i> <span>Equipo Directivo</span></a></li>
+                <li><a href="#" class="nav-link" data-section="aerolinea"><i class="fas fa-building"></i> <span>Aerolínea</span></a></li>
                 <li><a href="#" class="nav-link" data-section="flota"><i class="fas fa-plane"></i> <span>Flota</span></a></li>
                 <li><a href="#" class="nav-link" data-section="crew"><i class="fas fa-user"></i> <span>Crew</span></a></li>
             </ul>
@@ -856,15 +935,15 @@
                 <p>Formamos parte de una comunidad apasionada por la aviación, donde podrás encontrar vuelos regulares y charters. Desde aquí conectamos con una gran variedad de destinos, ofreciendo la oportunidad de explorar los cielos con nuestra versátil flota.</p>
                 
                 <h3>Nuestra Filosofía</h3>
-                <p>Virtual Iberojet es un proyecto creado por y para entusiastas de la aviación, buscando ofrecer la experiencia más realista posible en simulación de vuelo. Nuestros pilotos siguen procedimientos profesionales y utilizamos herramientas como ACARS para la gestión de vuelos.</p>
+                <p>Virtual Iberojet es un proyecto creado por y para entusiastas de la aviación, buscando offrecer la experiencia más realista posible en simulación de vuelo. Nuestros pilotos siguen procedimientos profesionales y utilizamos herramientas como ACARS para la gestión de vuelos.</p>
                 
                 <p>Promovemos el aprendizaje continuo, el respeto por los procedimientos aéreos y el compañerismo entre nuestros miembros. Organizamos eventos regulares y sesiones de formación para mejorar las habilidades de nuestros pilotos.</p>
             </div>
         </div>
 
-        <!-- Sección Nosotros -->
-        <div id="nosotros-content" class="section">
-            <h2><b>Nuestro Equipo</b></h2>
+        <!-- Sección Equipo Directivo -->
+        <div id="equipo-directivo-content" class="section">
+            <h2><b>Equipo Directivo</b></h2>
             <div class="team-container">
                 <div class="team-member">
                     <div class="initials-circle">P</div>
@@ -899,6 +978,42 @@
             </div>
         </div>
 
+        <!-- Sección Aerolínea -->
+        <div id="aerolinea-content" class="section">
+            <h2><b>Aerolínea</b></h2>
+            
+            <div class="airline-section">
+                <div class="airline-tabs">
+                    <div class="airline-tab active" data-tab="normativa">Normativa</div>
+                    <div class="airline-tab" data-tab="estadisticas">Estadísticas</div>
+                    <div class="airline-tab" data-tab="pilotos">Pilotos</div>
+                </div>
+                
+                <div class="airline-tab-content active" id="normativa-tab">
+                    <iframe src="https://drive.google.com/file/d/1Y9-fUjPowX3rp8wq2GqaYUJwXU_3QJz4/preview" class="airline-iframe"></iframe>
+                </div>
+                
+                <div class="airline-tab-content" id="estadisticas-tab">
+                    <div class="api-container">
+                        <h3 class="api-title">Vuelos</h3>
+                        <script src="https://api.newsky.com/widget.js?key=EVV_3OXlWPBEqLSExD6HKJkDqinQtQlmHA"></script>
+                    </div>
+                    
+                    <div class="api-container">
+                        <h3 class="api-title">Mapa de vuelos en vivo</h3>
+                        <script src="https://api.newsky.com/widget.js?key=EEVV_jagovzBraFBeovl6QU92uhBqBmDcIh"></script>
+                    </div>
+                </div>
+                
+                <div class="airline-tab-content" id="pilotos-tab">
+                    <div class="api-container">
+                        <h3 class="api-title">Pilotos</h3>
+                        <script src="https://api.newsky.com/widget.js?key=EVV_pwnN5V5JalohCh5KoIQftLdr5qkz6Q"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Sección Flota -->
         <div id="flota-content" class="section">
             <h2><b>Nuestra Flota</b></h2>
@@ -921,13 +1036,13 @@
                                     <div class="detail-value">180 asientos</div>
                                 </div>
                                 <div class="detail-item">
-                                    <div class="detail-label">Alcange</div>
+                                    <div class="detail-label">Alcance</div>
                                     <div class="detail-value">3,300 nm</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+                                    
                     <!-- Airbus A330-300 -->
                     <div class="aircraft-card">
                         <img src="https://freeware.aerosoft.com/forum/screenshots/monthly_03_2021/2021-3-30_21-32-16-735.png.b1dca34c8a2470a0cf0ab342e6bf49e3.png" alt="Virtual Iberojet A330-300" class="aircraft-image">
@@ -943,7 +1058,7 @@
                                     <div class="detail-value">388 asientos</div>
                                 </div>
                                 <div class="detail-item">
-                                    <div class="detail-label">Alcange</div>
+                                    <div class="detail-label">Alcance</div>
                                     <div class="detail-value">6,350 nm</div>
                                 </div>
                             </div>
@@ -968,13 +1083,13 @@
                                     <div class="detail-value">310 asientos</div>
                                 </div>
                                 <div class="detail-item">
-                                    <div class="detail-label">Alcange</div>
+                                    <div class="detail-label">Alcance</div>
                                     <div class="detail-value">7,200 nm</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+                                    
                     <!-- Airbus A350-900 -->
                     <div class="aircraft-card">
                         <img src="https://media.invisioncic.com/c334187/monthly_2024_04/A350_xp11-2024-04-1723_57_59.png.75d3aa55e49a5743fba3b30b001c72fb.png" alt="Virtual Iberojet A350-900" class="aircraft-image">
@@ -990,7 +1105,7 @@
                                     <div class="detail-value">316 asientos</div>
                                 </div>
                                 <div class="detail-item">
-                                    <div class="detail-label">Alcange</div>
+                                    <div class="detail-label">Alcance</div>
                                     <div class="detail-value">8,100 nm</div>
                                 </div>
                             </div>
@@ -1092,6 +1207,23 @@
         // Mostrar modal al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('aviso-modal').style.display = 'flex';
+            
+            // Inicializar pestañas de la sección Aerolínea
+            const airlineTabs = document.querySelectorAll('.airline-tab');
+            airlineTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remover clase active de todas las pestañas
+                    document.querySelectorAll('.airline-tab').forEach(t => t.classList.remove('active'));
+                    // Añadir clase active a la pestaña clickeada
+                    this.classList.add('active');
+                    
+                    // Ocultar todos los contenidos
+                    document.querySelectorAll('.airline-tab-content').forEach(c => c.classList.remove('active'));
+                    // Mostrar el contenido correspondiente
+                    const tabId = this.getAttribute('data-tab') + '-tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
         });
         
         // Cerrar modal
@@ -1118,6 +1250,9 @@
                 // Mostrar la sección correspondiente
                 const sectionId = this.getAttribute('data-section') + '-content';
                 document.getElementById(sectionId).classList.add('active');
+                
+                // Scroll al inicio
+                window.scrollTo(0, 80);
             });
         });
         
