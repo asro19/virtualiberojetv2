@@ -148,7 +148,7 @@
         }
         
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://photos.flightaware.com/photos/retriever/3fa264b9c271a2e18f0a390fc9be3e213dd05ed1');
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://cdn.flightsim.to/images/27/virtual-iberojet-eve-efb-wallpaper-fenix-a320-v2-b2-918529-1754660541-Utbs5.jpg?width=1400');
             background-size: cover;
             background-position: center;
             height: 70vh;
@@ -161,10 +161,24 @@
             margin-bottom: 40px;
         }
         
+        /* Eliminar marca de agua */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20%;
+            background: linear-gradient(to top, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0));
+            z-index: 1;
+        }
+        
         .welcome-section {
             max-width: 800px;
             margin: 0 auto 40px;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
         
         .welcome-title {
@@ -421,7 +435,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
+}
         
         .team-member:hover {
             transform: translateY(-5px);
@@ -853,7 +867,7 @@
         <!-- Sección Inicio -->
         <div id="inicio-content" class="section active">
             <div class="hero-section">
-                <!-- Logo removido según solicitud -->
+                <!-- Banner con la nueva imagen -->
             </div>
             
             <!-- Welcome Section -->
@@ -1015,7 +1029,7 @@
                             </div>
                         </div>
                     </div>
-                                    
+                                                    
                     <!-- Airbus A330-300 -->
                     <div class="aircraft-card">
                         <img src="https://freeware.aerosoft.com/forum/screenshots/monthly_03_2021/2021-3-30_21-32-16-735.png.b1dca34c8a2470a0cf0ab342e6bf49e3.png" alt="Virtual Iberojet A330-300" class="aircraft-image">
@@ -1062,7 +1076,7 @@
                             </div>
                         </div>
                     </div>
-                                    
+                                                    
                     <!-- Airbus A350-900 -->
                     <div class="aircraft-card">
                         <img src="https://media.invisioncic.com/c334187/monthly_2024_04/A350_xp11-2024-04-1723_57_59.png.75d3aa55e49a5743fba3b30b001c72fb.png" alt="Virtual Iberojet A350-900" class="aircraft-image">
@@ -1171,7 +1185,7 @@
                     document.querySelectorAll('.airline-tab').forEach(t => t.classList.remove('active'));
                     // Añadir clase active a la pestaña clickeada
                     this.classList.add('active');
-                                    
+                                                    
                     // Ocultar todos los contenidos
                     document.querySelectorAll('.airline-tab-content').forEach(c => c.classList.remove('active'));
                     // Mostrar el contenido correspondiente
@@ -1235,4 +1249,3 @@
     </script>
 </body>
 </html>
-
