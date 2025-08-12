@@ -460,6 +460,7 @@
             color: var(--iberojet-blue);
             margin: 0 0 5px 0;
             font-size: 18px;
+            font-weight: 6
             font-weight: 600;
         }
         
@@ -611,47 +612,52 @@
             font-weight: 600;
         }
 
-        /* Nueva sección Aerolíneas Asociadas */
-        .associated-airlines {
+        /* Sección Aerolíneas Asociadas */
+        .partner-airlines {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
             margin-top: 30px;
         }
 
-        .airline-partner {
+        .partner-card {
             background: white;
             border-radius: 16px;
-            padding: 30px;
+            padding: 25px;
+            width: 300px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            width: 100%;
-            max-width: 600px;
             text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .airline-partner:hover {
+        .partner-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .airline-logo {
-            max-width: 200px;
-            height: auto;
+        .partner-logo {
+            height: 100px;
+            object-fit: contain;
             margin-bottom: 20px;
             transition: transform 0.3s ease;
         }
 
-        .airline-logo:hover {
+        .partner-card:hover .partner-logo {
             transform: scale(1.05);
         }
 
-        .airline-description {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .partner-name {
+            color: var(--iberojet-blue);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .partner-description {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.5;
         }
         
         /* Pie de página */
@@ -715,7 +721,7 @@
             width: 90%;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             text-align: center;
-        }
+}
         
         .modal-title {
             font-size: 22px;
@@ -835,8 +841,14 @@
                 padding: 10px;
             }
 
-            .airline-partner {
-                padding: 20px;
+            .partner-airlines {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .partner-card {
+                width: 100%;
+                max-width: 350px;
             }
         }
         
@@ -993,7 +1005,7 @@
                     <div class="initials-circle">A</div>
                     <h3>Asier Roset</h3>
                     <div class="position">CO-CEO</div>
-                    <p>Especialista en operaciones y gestión de flota. Piloto virtual de la familia A320 and entusiasta de la aviación comercial.</p>
+                    <p>Especialista en operaciones y gestión de flota. Piloto virtual de la familia A320 y entusiasta de la aviación comercial.</p>
                 </div>
                 <div class="team-member">
                     <div class="initials-circle">È</div>
@@ -1046,15 +1058,27 @@
                     </iframe>
                 </div>
 
-                <!-- Nueva sección Aerolíneas Asociadas -->
                 <div class="airline-tab-content" id="asociadas-tab">
-                    <div class="associated-airlines">
-                        <div class="airline-partner">
+                    <h3 style="text-align: center; color: var(--iberojet-blue); margin-bottom: 30px;">Nuestras Aerolíneas Asociadas</h3>
+                    
+                    <div class="partner-airlines">
+                        <div class="partner-card">
                             <a href="https://www.virtual-iberia.com/" target="_blank">
-                                <img src="https://cdn.vamsys.xyz/logos/01J7G9EMKDNRRDRVNER89WB1G0.png" alt="Virtual Iberia" class="airline-logo">
+                                <img src="https://cdn.vamsys.xyz/logos/01J7G9EMKDNRRDRVNER89WB1G0.png" alt="Iberia Virtual" class="partner-logo">
                             </a>
-                            <p class="airline-description">
+                            <h4 class="partner-name">Iberia Virtual</h4>
+                            <p class="partner-description">
                                 Iberia Virtual es una aerolínea asociada. Es la aerolínea 1 en Madrid-Barajas. Iberojet hace vuelos para Iberia cuando necesita más flota, especialmente en temporada de alta demanda.
+                            </p>
+                        </div>
+                        
+                        <div class="partner-card">
+                            <a href="https://www.vamsys.io/register/albastar" target="_blank">
+                                <img src="https://cdn.vamsys.xyz/logos/01JVYE9SXF36BYRDDPS405SD0D.png" alt="Alba Star Virtual" class="partner-logo">
+                            </a>
+                            <h4 class="partner-name">Alba Star Virtual</h4>
+                            <p class="partner-description">
+                                Alba Star Virtual es una aerolínea de vuelos charter de corto radio. Iberojet opera puntualmente vuelos charter para Alba Star, al igual que Alba Star para Iberojet en vuelos de corto radio.
                             </p>
                         </div>
                     </div>
@@ -1186,7 +1210,7 @@
                 
                 <div class="requirement-card">
                     <div class="requirement-icon"><i class="fas fa-language"></i></div>
-                    <div class="requirement-text">Conocimiento fluido de Castellano y/o Inglés </div>
+                    <div class="requirement-text">Conocimiento fluido de Castellano </div>
                 </div>
             </div>
             
@@ -1246,7 +1270,7 @@
                     document.querySelectorAll('.airline-tab').forEach(t => t.classList.remove('active'));
                     // Añadir clase active a la pestaña clickeada
                     this.classList.add('active');
-                                                                    
+                                                                
                     // Ocultar todos los contenidos
                     document.querySelectorAll('.airline-tab-content').forEach(c => c.classList.remove('active'));
                     // Mostrar el contenido correspondiente
@@ -1299,7 +1323,7 @@
             });
 
             // Mostrar sección de registro
-            document.getElementById('registro-content').classles.add('active');
+            document.getElementById('registro-content').classList.add('active');
 
             // Scroll al inicio
             window.scrollTo(0, 80);
