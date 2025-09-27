@@ -903,22 +903,6 @@
         </div>
     </div>
 
-    <!-- Modal de registro cerrado -->
-    <div class="modal-overlay" id="registro-cerrado-modal" style="display: none;">
-        <div class="modal-content">
-            <h3 class="modal-title">Registro CERRADO</h3>
-            <p class="modal-text">
-                Actualmente el proceso de selección está cerrado. Síguenos en nuestras redes sociales 
-                <a href="https://x.com/iberojet_va" class="modal-link" target="_blank">@iberojet_va</a> 
-                para estar informado de la próxima apertura de registros.
-            </p>
-            <p class="modal-text">
-                ¡Te esperamos en Virtual Iberojet!
-            </p>
-            <button class="modal-btn" id="registro-cerrado-close-btn">De acuerdo</button>
-        </div>
-    </div>
-
     <header>
         <nav>
             <img src="https://cdn.flightsim.to/images/27/virtual-iberojet-eve-efb-wallpaper--fenix-a320-v2-b2-918529-1747066975-FAn5z.jpg?width=1400" alt="Virtual Iberojet" class="logo">
@@ -996,7 +980,7 @@
                 <p>Formamos parte de una comunidad apasionada por la aviación, donde podrás encontrar vuelos regulares y charters. Desde aquí conectamos con una gran variedad de destinos, offreciendo la oportunidad de explorar los cielos con nuestra versátil flota.</p>
                 
                 <h3>Nuestra Filosofía</h3>
-                <p>Virtual Iberojet es un proyecto creado por y para entusiastas de la aviación, buscando ofrecer la experiencia más realista posible en simulación de vuelo. Nuestros piloto siguen procedimientos profesionales y utilizamos herramientas como ACARS para la gestión de vuelos.</p>
+                <p>Virtual Iberojet es un proyecto creado por y para entusiastas de la aviación, buscando ofrecer la experiencia más realista posible en simulación de vuelo. Nuestros pilotos siguen procedimientos profesionales y utilizamos herramientas como ACARS para la gestión de vuelos.</p>
                 
                 <p>Promovemos el aprendizaje continuo, el respeto por los procedimientos aéreos y el compañerismo entre nuestros miembros. Organizamos eventos regulares y sesiones de formación para mejorar las habilidades de nuestros pilotos.</p>
             </div>
@@ -1263,7 +1247,7 @@
                 <p>¡Bienvenido a nuestro proceso de registro! Completa el formulario para unirte a nuestra comunidad.</p>
             </div>
             
-            <button class="submit-btn" id="registro-btn-final">
+            <button class="submit-btn" onclick="window.location.href='https://forms.gle/3mBBN99G9B1VtuPJ7'">
                 Registrarme
             </button>
         </div>
@@ -1299,17 +1283,6 @@
                     const tabId = this.getAttribute('data-tab') + '-tab';
                     document.getElementById(tabId).classList.add('active');
                 });
-            });
-
-            // Agregar evento al botón de registro final
-            document.getElementById('registro-btn-final').addEventListener('click', function(e) {
-                e.preventDefault();
-                document.getElementById('registro-cerrado-modal').style.display = 'flex';
-            });
-
-            // Cerrar modal de registro cerrado
-            document.getElementById('registro-cerrado-close-btn').addEventListener('click', function() {
-                document.getElementById('registro-cerrado-modal').style.display = 'none';
             });
         });
 
@@ -1367,4 +1340,3 @@
     </script>
 </body>
 </html>
-
