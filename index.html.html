@@ -1158,8 +1158,7 @@
             <!-- Carrusel de imágenes -->
             <div class="hero-carousel">
                 <div class="carousel-slides">
-                    <div class="carousel-slide active" style="background-image: url('https://cdn.flightsim.to/images/27/virtual-iberojet-eve-efb-wallpaper-fenix-a320-v2-b2-918529-1754660541-Utbs5.jpg?width=1400')"></div>
-                    <div class="carousel-slide" style="background-image: url('https://freeware.aerosoft.com/forum/screenshots/monthly_03_2021/2021-3-30_21-32-16-735.png.b1dca34c8a2470a0cf0ab342e6bf49e3.png')"></div>
+                    <div class="carousel-slide active" style="background-image: url('https://freeware.aerosoft.com/forum/screenshots/monthly_03_2021/2021-3-30_21-32-16-735.png.b1dca34c8a2470a0cf0ab342e6bf49e3.png')"></div>
                     <div class="carousel-slide" style="background-image: url('https://cdn.flightsim.to/images/27/iberojet-a330neo--8k--4k--fleet-pack-564148-1738967379-CXHvt.jpg?width=1400')"></div>
                     <div class="carousel-slide" style="background-image: url('https://media.invisioncic.com/c334187/monthly_2024_04/A350_xp11-2024-04-1723_57_59.png.75d3aa55e49a5743fba3b30b001c72fb.png')"></div>
                     <div class="carousel-slide" style="background-image: url('https://media.invisioncic.com/c334187/monthly_2025_09/Bild_3.png.f94fcd44b89d6de13e7750d4cbdae0d6.png')"></div>
@@ -1825,9 +1824,14 @@
                 showSlide(nextIndex);
             }
 
-            // Iniciar autoplay
+            // Iniciar autoplay con un pequeño retraso inicial
             function startAutoPlay() {
-                slideInterval = setInterval(nextSlide, 5000);
+                // Primer cambio después de 2 segundos
+                setTimeout(() => {
+                    nextSlide();
+                    // Luego continuar con el intervalo normal de 5 segundos
+                    slideInterval = setInterval(nextSlide, 5000);
+                }, 2000);
             }
 
             // Detener autoplay
