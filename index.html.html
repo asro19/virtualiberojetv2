@@ -152,6 +152,8 @@
             min-height: 600px;
             overflow: hidden;
             margin-bottom: 40px;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
         }
         
         .carousel-slides {
@@ -170,6 +172,7 @@
             transition: opacity 1s ease-in-out;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
         
         .carousel-slide.active {
@@ -222,62 +225,6 @@
             background-color: var(--iberojet-blue);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-        
-        .carousel-indicators {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            z-index: 2;
-        }
-        
-        .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .carousel-indicator.active {
-            background-color: white;
-            transform: scale(1.2);
-        }
-        
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            z-index: 2;
-            font-size: 20px;
-        }
-        
-        .carousel-nav:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-        
-        .carousel-prev {
-            left: 20px;
-        }
-        
-        .carousel-next {
-            right: 20px;
         }
         
         /* Eliminar marca de agua */
@@ -1042,12 +989,6 @@
                 gap: 15px;
                 text-align: center;
             }
-            
-            .carousel-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -1218,34 +1159,23 @@
             <div class="hero-carousel">
                 <div class="carousel-slides">
                     <div class="carousel-slide active" style="background-image: url('https://cdn.flightsim.to/images/27/virtual-iberojet-eve-efb-wallpaper-fenix-a320-v2-b2-918529-1754660541-Utbs5.jpg?width=1400')"></div>
-                    <div class="carousel-slide" style="background-image: url('https://cdn.flightsim.to/images/27/fenix-a320-v2---iberojet--evelop-ec-lzd-8kcabin-textures-197833-1737999182-gnHXf.jpg?width=1400')"></div>
                     <div class="carousel-slide" style="background-image: url('https://freeware.aerosoft.com/forum/screenshots/monthly_03_2021/2021-3-30_21-32-16-735.png.b1dca34c8a2470a0cf0ab342e6bf49e3.png')"></div>
                     <div class="carousel-slide" style="background-image: url('https://cdn.flightsim.to/images/27/iberojet-a330neo--8k--4k--fleet-pack-564148-1738967379-CXHvt.jpg?width=1400')"></div>
                     <div class="carousel-slide" style="background-image: url('https://media.invisioncic.com/c334187/monthly_2024_04/A350_xp11-2024-04-1723_57_59.png.75d3aa55e49a5743fba3b30b001c72fb.png')"></div>
+                    <div class="carousel-slide" style="background-image: url('https://media.invisioncic.com/c334187/monthly_2025_09/Bild_3.png.f94fcd44b89d6de13e7750d4cbdae0d6.png')"></div>
+                    <div class="carousel-slide" style="background-image: url('https://media.invisioncic.com/c334187/monthly_2025_09/Bild_2.png.b4f569dc52c7431b7f62a7bd254de59e.png')"></div>
+                    <div class="carousel-slide" style="background-image: url('https://media.invisioncic.com/c334187/monthly_2025_10/IberoJet-HiFly_a.jpg.e3e130fd3d722f0e1a44eb5769e21d28.jpg')"></div>
+                    <div class="carousel-slide" style="background-image: url('https://media.invisioncic.com/c334187/monthly_2024_11/Iberojet_d.jpg.428cec195ae0765d208cc69e9d67051c.jpg')"></div>
+                    <div class="carousel-slide" style="background-image: url('https://media.invisioncic.com/c334187/monthly_2024_04/A350_xp11-2024-04-1723_58_45.png.1164971c014bf6557b4a5ab10c5381da.png')"></div>
                 </div>
                 
                 <!-- Overlay con texto y botón -->
                 <div class="carousel-overlay">
                     <h1 class="carousel-title">Bienvenido a Virtual Iberojet</h1>
                     <p class="carousel-subtitle">¿A qué estás esperando?</p>
-                    <button class="carousel-btn" onclick="window.location.href='https://forms.gle/3mBBN99G9B1VtuPJ7'">Registrate</button>
-                </div>
-                
-                <!-- Navegación del carrusel -->
-                <button class="carousel-nav carousel-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav carousel-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
-                <!-- Indicadores -->
-                <div class="carousel-indicators">
-                    <div class="carousel-indicator active"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
-                    <div class="carousel-indicator"></div>
+                    <button class="carousel-btn" id="carousel-register-btn">
+                        Registrate
+                    </button>
                 </div>
             </div>
             
@@ -1691,7 +1621,7 @@
             
             <!-- Barra inferior -->
             <div class="footer-bottom">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMjAwIDUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxzdHlsZT4udGV4dHtmaWxsOiNmZmY7Zm9udC1mYW1pbHk6QXJpYWwsIHNhbnMtc2VyaWY7Zm9udC13ZWlnaHQ6Ym9sZDt9LnRleHQtc21hbGx7Zm9udC1zaXplOjE0cHg7fS50ZXh0LWxhcmdle2ZvbnQtc2l6ZToyNHB4O30uc3VidGV4dHtmaWxsOiNmZmY7Zm9udC1mYW1pbHk6QXJpYWwsIHNhbnMtc2VyaWY7Zm9udC1zaXplOjEwcHg7b3BhY2l0eTowLjg7fTwvc3R5bGU+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzI0MkM2QyIvPjx0ZXh0IHg9IjEwIiB5PSIzNSIgY2xhc3M9InRleHQgdGV4dC1sYXJnZSI+aWJlcm9qZXQ8L3RleHQ+PHRleHQgeD0iMTAiIHk9IjQ1IiBjbGFzcz0ic3VidGV4dCI+VmlydHVhbDwvdGV4dD48L3N2Zz4=" alt="Virtual Iberojet" class="footer-logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMjAwIDUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iNTAiIGZpbGw9IiMyNDJDNkMiLz48dGV4dCB4PSIxMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPmliZXJvamV0PC90ZXh0Pjx0ZXh0IHg9IjEwIiB5PSI0NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSI+VmlydHVhbDwvdGV4dD48L3N2Zz4=" alt="Virtual Iberojet" class="footer-logo">
                 <p class="copyright">© 2025 Virtual Iberojet. Todos los derechos reservados.</p>
             </div>
         </div>
@@ -1801,6 +1731,23 @@
                     window.scrollTo(0, 80);
                 });
             });
+
+            // Manejar botón de registro del carrusel
+            document.getElementById('carousel-register-btn').addEventListener('click', function() {
+                // Ocultar todas las secciones
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Mostrar sección de registro
+                document.getElementById('registro-content').classList.add('active');
+
+                // Scroll al inicio
+                window.scrollTo(0, 80);
+
+                // Remover clase active de todos los links de navegación
+                document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+            });
         });
 
         // Cerrar modal
@@ -1858,21 +1805,16 @@
         // Funcionalidad del carrusel
         function initCarousel() {
             const slides = document.querySelectorAll('.carousel-slide');
-            const indicators = document.querySelectorAll('.carousel-indicator');
-            const prevBtn = document.querySelector('.carousel-prev');
-            const nextBtn = document.querySelector('.carousel-next');
             let currentSlide = 0;
             let slideInterval;
 
             // Función para mostrar slide
             function showSlide(index) {
-                // Remover clase active de todos los slides e indicadores
+                // Remover clase active de todos los slides
                 slides.forEach(slide => slide.classList.remove('active'));
-                indicators.forEach(indicator => indicator.classList.remove('active'));
                 
-                // Añadir clase active al slide e indicador actual
+                // Añadir clase active al slide actual
                 slides[index].classList.add('active');
-                indicators[index].classList.add('active');
                 
                 currentSlide = index;
             }
@@ -1881,12 +1823,6 @@
             function nextSlide() {
                 let nextIndex = (currentSlide + 1) % slides.length;
                 showSlide(nextIndex);
-            }
-
-            // Función para slide anterior
-            function prevSlide() {
-                let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(prevIndex);
             }
 
             // Iniciar autoplay
@@ -1898,28 +1834,6 @@
             function stopAutoPlay() {
                 clearInterval(slideInterval);
             }
-
-            // Event listeners
-            nextBtn.addEventListener('click', () => {
-                stopAutoPlay();
-                nextSlide();
-                startAutoPlay();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                stopAutoPlay();
-                prevSlide();
-                startAutoPlay();
-            });
-
-            // Event listeners para indicadores
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    stopAutoPlay();
-                    showSlide(index);
-                    startAutoPlay();
-                });
-            });
 
             // Iniciar autoplay
             startAutoPlay();
