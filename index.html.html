@@ -328,6 +328,29 @@
             font-weight: 500;
         }
         
+        /* Nueva card para el logo */
+        .logo-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            max-width: 300px;
+            margin: 40px auto;
+            cursor: pointer;
+        }
+        
+        .logo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .logo-image {
+            max-width: 100%;
+            height: auto;
+        }
+        
         /* Sección Información */
         .info-section {
             padding: 0 20px;
@@ -674,7 +697,7 @@
             font-weight: 600;
         }
 
-        /* Sección Aerolíneas Asociadas */
+        /* Sección Colaboradores */
         .partner-airlines {
             display: flex;
             justify-content: center;
@@ -1215,6 +1238,11 @@
                 </div>
             </div>
 
+            <!-- Nueva card con logo VATSIM -->
+            <div class="logo-card" onclick="window.open('https://www.vatsimspain.es/', '_blank')">
+                <img src="https://bintervirtual.es/assets/images/vatsim.webp" alt="VATSIM" class="logo-image">
+            </div>
+
             <!-- Mapa de vuelos en vivo en la página de inicio -->
             <div class="api-container" style="margin-top: 40px;">
                 <h3 class="api-title">Mapa de vuelos en vivo</h3>
@@ -1286,7 +1314,7 @@
                 <div class="airline-tabs">
                     <div class="airline-tab active" data-tab="normativa">Normativa</div>
                     <div class="airline-tab" data-tab="pilotos">Pilotos</div>
-                    <div class="airline-tab" data-tab="asociadas">Aerolíneas Asociadas</div>
+                    <div class="airline-tab" data-tab="asociadas">Colaboradores</div>
                 </div>
                 
                 <div class="airline-tab-content active" id="normativa-tab">
@@ -1309,27 +1337,19 @@
                 </div>
 
                 <div class="airline-tab-content" id="asociadas-tab">
-                    <h3 style="text-align: center; color: var(--iberojet-blue); margin-bottom: 30px;">Nuestras Aerolíneas Asociadas</h3>
+                    <h3 style="text-align: center; color: var(--iberojet-blue); margin-bottom: 30px;">Nuestros Colaboradores</h3>
                     
                     <div class="partner-airlines">
                         <div class="partner-card">
                             <a href="https://www.virtual-iberia.com/" target="_blank">
                                 <img src="https://cdn.vamsys.xyz/logos/01J7G9EMKDNRRDRVNER89WB1G0.png" alt="Iberia Virtual" class="partner-logo">
                             </a>
-                            <h4 class="partner-name">Iberia Virtual</h4>
-                            <p class="partner-description">
-                                Iberia Virtual es una aerolínea asociada. Es la aerolínea 1 en Madrid-Barajas. Iberojet hace vuelos para Iberia cuando necesita más flota, especialmente en temporada de alta demanda.
-                            </p>
                         </div>
                         
                         <div class="partner-card">
                             <a href="https://www.vamsys.io/register/albastar" target="_blank">
                                 <img src="https://cdn.vamsys.xyz/logos/01JVYEJPA2PPPXT7W882SMN9XT.png" alt="Alba Star Virtual" class="partner-logo">
                             </a>
-                            <h4 class="partner-name">Alba Star Virtual</h4>
-                            <p class="partner-description">
-                                Alba Star Virtual es una aerolínea de vuelos charter de corto radio. Iberojet opera puntualmente vuelos charter para Alba Star, al igual que Alba Star para Iberojet en vuelos de corto radio.
-                            </p>
                         </div>
 
                         <!-- Nueva aerolínea asociada vTAP -->
@@ -1337,10 +1357,6 @@
                             <a href="https://vtpvirtual.web.app/" target="_blank">
                                 <img src="https://vtpvirtual.web.app/images/logo.png" alt="vTAP Virtual" class="partner-logo">
                             </a>
-                            <h4 class="partner-name">vTAP Virtual</h4>
-                            <p class="partner-description">
-                                TAP Air Portugal es la aerolínea nº 1 en Portugal. A diario vuela desde Lisboa y Oporto. Orbest y TAP comparten base en Lisboa.
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -1578,7 +1594,7 @@
                     <ul>
                         <li><a href="#" class="nav-link" data-section="equipo-directivo">Equipo Directivo</a></li>
                         <li><a href="#" class="nav-link" data-section="pilotos">Pilotos</a></li>
-                        <li><a href="#" class="nav-link" data-section="aerolinea" data-tab="asociadas">Aerolíneas Asociadas</a></li>
+                        <li><a href="#" class="nav-link" data-section="aerolinea" data-tab="asociadas">Colaboradores</a></li>
                         <li><a href="#" class="nav-link" data-section="flota">Flota</a></li>
                     </ul>
                 </div>
@@ -1603,7 +1619,7 @@
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyLjE2M2MzLjIwNCAwIDMuNTg0LjAxMiA0Ljg1LjA3IDMuMjUyLjE0OCA0Ljc3MSAxLjY5MSA0LjkxOSA0LjkyLjA1OCAxLjI2NS4wNyAxLjY0NS4wNyA0Ljg0OSAwIDMuMjA0LS4wMTIgMy41ODQtLjA3IDQuODQ5LS4xNDggMy4yNTItMS42NjcgNC43NzEtNC45MTkgNC45MTktMS4yNjYuMDU4LTEuNjQ1LjA3LTQuODUuMDctMy4yMDUgMC0zLjU4NC0uMDEyLTQuODQ5LS4wNy0zLjI1Mi0uMTQ4LTQuNzcxLTEuNjkxLTQuOTE5LTQuOTItLjA1OC0xLjI2NS0uMDctMS42NDUtLjA3LTQuODQ5IDAtMy4yMDQuMDEyLTMuNTg0LjA3LTQuODQ5LjE0OC0zLjIyNyAxLjY2Ny00Ljc3MSA0LjkyLTQuOTE5IDEuMjY1LS4wNTggMS42NDQtLjA3IDQuODQ4LS4wN3ptMC0yLjE2M2MtMy4yNTkgMC0zLjY2Ny4wMTEtNC45NDcuMDU2LTQuMzU4LjItNi43OCAyLjYxOC02Ljk4IDYuOTgtLjA0NSAxLjI4LS4wNTYgMS42ODgtLjA1NiA0Ljk0NyAwIDMuMjU5LjAxMSAzLjY2Ny4wNTYgNC45NDcuMiA0LjM1OCAyLjYxOCA2Ljc4IDYuOTggNi45OCAxLjI4LjA0NSAxLjY4OC4wNTYgNC45NDcuMDU2IDMuMjU5IDAgMy42NjctLjAxMSA0Ljk0Ny0uMDU2IDQuMzU4LS4yIDYuNzgtMi42MTggNi45OC02Ljk4LjA0NS0xLjI4LjA1Ni0xLjY4OC4wNTYtNC45NDcgMC0zLjI1OS0uMDExLTMuNjY3LS4wNTYtNC45NDctLjItNC4zNTgtMi42MTgtNi43OC02Ljk4LTYuOTgtMS4yOC0uMDQ1LTEuNjg4LS4wNTYtNC45NDctLjA1NnptMCA1LjgzOGMtMy40MTggMC02LjE4IDIuNzYyLTYuMTggNi4xOCAwIDMuNDE4IDIuNzYyIDYuMTggNi4xOCA2LjE4IDMuNDE4IDAgNi4xOC0yLjc2MiA2LjE4LTYuMTggMC0zLjQxOC0yLjc2Mi02LjE4LTYuMTgtNi4xOHptMCAxMC4xNzVhMy45OTcgMy45OTcgMCAxIDEgMC03Ljk5NCAzLjk5NyAzLjk5NyAwIDAgMSAwIDcuOTk0em02LjQwNi0xMS44NDVhMS42OCAxLjY4IDAgMSAxLTMuMzYgMCAxLjY4IDEuNjggMCAwIDEgMy4zNiAweiIvPjwvc3ZnPg==" alt="Instagram" class="social-icon">
                         </a>
                         <a href="https://www.youtube.com/@VirtualIberojet" target="_blank">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMy40OTggNi4xODVhMi45OTIgMi45OTIgMCAwIDAtMi4xMDktMi4wOEMxOS4zOTUgMy41IDEyIDMuNSAxMiAzLjVzLTcuMzk1IDAtOS4zODkuNjA1YTIuOTkyIDIuOTkyIDAgMCAwLTIuMSAyLjA4Qy4wMDIgOC4xODMgMCAxMiAwIDEyczAgMy44MTcuNDk1IDUuODE1YTIuOTkyIDIuOTkyIDAgMCAwIDIuMSAyLjA4QzQuNjA1IDIwLjUgMTIgMjAuNSAxMiAyMC41czcuMzk1IDAgOS4zODktLjYwNWEyLjk5MiAyLjk5MiAwIDAgMCAyLjEtMi4wOGMuNDkzLTEuOTk4LjQ5NS01LjgxNS40OTUtNS44MTVzLS4wMDItMy44MTctLjQ5NS01LjgxNXptLTEzLjgxIDkuODVWNy45NjVsNi4yNjUgMy4wMzUtNi4yNjUgMy4wMzV6Ii8+PC9zdmc+" alt="YouTube" class="social-icon">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMy40OTggNi4xODVhMi45OTIgMi45OTIgMCAwIDAtMi4xMDktMi4wOEMxOS4zOTUgMy41IDEyIDMuNSAxMiAzLjVzLTcuMzk1IDAtOS4zODkuNjA1YTIuOTkyIDIuOTkyIDAgMCAwLTIuMSAyLjA4Qy4wMDIgOC4xODMgMCAxMiAwIDEyczAgMy44MTcuNDk1IDUuODE1YTIuOTkyIDIuOTkyIDAgMCAwIDIuMSAyLjA4QzQuNjA1IDIwLjUgMTIgMjAuNSAxMiAyMC41czcuMzk1IDAgOS4zODktLjYwNWEyLjk5MiAyLjk5Ig alt="YouTube" class="social-icon">
                         </a>
                     </div>
                 </div>
@@ -1850,4 +1866,3 @@
     </script>
 </body>
 </html>
-
