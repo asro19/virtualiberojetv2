@@ -118,15 +118,37 @@
             background: rgba(28, 156, 140, 0.12);
         }
 
+        /* ============ BARRA DE AVISO ============ */
+        .top-alert-bar {
+            position: fixed;
+            top: 78px;
+            width: 100%;
+            z-index: 999;
+            background: var(--eve-blue);
+            color: #ffffff;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 10px 20px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .top-alert-bar i { margin-right: 8px; color: var(--eve-green); }
+
         /* ============ CONTENIDO GENERAL ============ */
         .content {
-            margin-top: 78px;
+            margin-top: 120px;
             padding: 0 5% 40px;
             max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
             flex: 1;
         }
+
+        body.bar-hidden .content { margin-top: 78px; }
+        body.bar-hidden .top-alert-bar { display: none; }
 
         .section { display: none; animation: fadeInUp 0.5s ease-out; }
         .section.active { display: block; }
@@ -405,31 +427,259 @@
         /* ============ AEROLINEA ============ */
         .airline-section { max-width: 950px; margin: 0 auto; }
 
+        .airline-intro {
+            max-width: 700px;
+            margin: 0 auto 36px;
+            text-align: center;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
         .airline-tabs {
             display: flex;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--eve-light);
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
         }
 
         .airline-tab {
-            padding: 14px 26px;
+            padding: 12px 24px;
             cursor: pointer;
             font-weight: 600;
-            color: #888;
-            transition: all 0.25s;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -2px;
+            font-size: 14px;
+            color: var(--eve-blue);
+            background: var(--eve-light);
+            border-radius: 30px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .airline-tab.active {
-            color: var(--eve-blue);
-            border-bottom: 2px solid var(--eve-green);
+            color: #ffffff;
+            background: var(--eve-green);
         }
 
-        .airline-tab:hover { color: var(--eve-green); }
+        .airline-tab:hover { background: var(--eve-green-deep); color: #ffffff; }
 
         .airline-tab-content { display: none; }
         .airline-tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+        .content-card {
+            background: #ffffff;
+            border: 1px solid rgba(36,44,108,0.08);
+            border-radius: 18px;
+            padding: 34px;
+            margin-bottom: 20px;
+        }
+
+        .destinos-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 10px 0 6px;
+            flex-wrap: wrap;
+        }
+
+        .destinos-toggle-btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 2px solid var(--eve-blue);
+            background: #ffffff;
+            color: var(--eve-blue);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .destinos-toggle-btn.active,
+        .destinos-toggle-btn:hover {
+            background: var(--eve-blue);
+            color: #ffffff;
+        }
+
+        .destinos-panel { display: none; }
+        .destinos-panel.active { display: block; animation: fadeIn 0.4s ease; }
+
+        .charter-info-card {
+            max-width: 520px;
+            margin: 30px auto;
+            text-align: center;
+            background: var(--eve-light);
+            border-radius: 18px;
+            padding: 44px 30px;
+        }
+
+        .charter-info-card h4 {
+            color: var(--eve-blue);
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+
+        .charter-info-card p {
+            color: #555;
+            font-size: 16px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ============ BUSCADOR DE DESTINOS ============ */
+        .flight-finder-section {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background: var(--eve-light);
+            padding: 45px 5% 55px;
+        }
+
+        .flight-finder-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+        }
+
+        .finder-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 220px;
+        }
+
+        .finder-field label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--eve-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .finder-field select {
+            padding: 13px 18px;
+            border-radius: 30px;
+            border: 2px solid rgba(36,44,108,0.15);
+            background: #ffffff;
+            color: var(--eve-blue);
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.25s ease;
+        }
+
+        .finder-field select:focus { border-color: var(--eve-green); }
+
+        .finder-arrow {
+            color: var(--eve-blue);
+            font-size: 20px;
+            margin-top: 22px;
+        }
+
+        .finder-reset-btn {
+            margin-top: 22px;
+            background: var(--eve-blue);
+            color: #ffffff;
+            border: none;
+            padding: 13px 26px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .finder-reset-btn:hover { background: var(--eve-green); }
+
+        .finder-count {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin: 0 auto 24px;
+            max-width: 1300px;
+        }
+
+        .finder-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .route-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(36,44,108,0.08);
+            padding: 24px;
+            transition: box-shadow 0.25s ease;
+        }
+
+        .route-card:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
+
+        .route-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(36,44,108,0.08);
+        }
+
+        .route-card-cities {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--eve-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .route-card-cities i { color: var(--eve-green); font-size: 13px; }
+
+        .route-origin-badge {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--eve-green);
+            background: rgba(28,156,140,0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .route-flight-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #555;
+            padding: 6px 0;
+        }
+
+        .route-flight-row .flight-num {
+            font-weight: 700;
+            color: var(--eve-blue);
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .route-flight-row .flight-dir { color: #888; font-size: 13px; }
+
+        .finder-empty {
+            text-align: center;
+            color: #888;
+            font-size: 15px;
+            padding: 40px 20px;
+            grid-column: 1 / -1;
+        }
 
         /* ============ FLOTA ============ */
         .fleet-container { display: flex; flex-direction: column; gap: 30px; margin-bottom: 50px; }
@@ -903,6 +1153,9 @@
             .nav-links a span { display: none; }
             .nav-links a { padding: 12px; width: 42px; height: 42px; justify-content: center; }
             .logo { height: 38px; }
+            .top-alert-bar { top: 70px; font-size: 11px; padding: 8px 14px; }
+            .content { margin-top: 108px; }
+            body.bar-hidden .content { margin-top: 70px; }
             .carousel-overlay { padding: 0 6%; align-items: center; text-align: center; }
             .carousel-title { font-size: 30px; }
             .carousel-subtitle { font-size: 15px; }
@@ -928,6 +1181,10 @@
             </ul>
         </nav>
     </header>
+
+    <div class="top-alert-bar">
+        <i class="fas fa-users"></i>Base Madrid · A320, A330, A350 · FOs y CPs Crew Recruiting
+    </div>
 
     <div class="content">
         <!-- ============ INICIO ============ -->
@@ -1020,13 +1277,19 @@
         <div id="aerolinea-content" class="section">
             <h2><b>Aerolínea</b></h2>
             <div class="airline-section">
+                <p class="airline-intro">Todo lo que necesitas saber sobre vEVE: normativa interna, documentación para pilotos y nuestros destinos y rutas activas.</p>
+
                 <div class="airline-tabs">
-                    <div class="airline-tab active" data-tab="normativa">Normativa</div>
-                    <div class="airline-tab" data-tab="pilotos">Pilotos</div>
+                    <div class="airline-tab active" data-tab="normativa"><i class="fas fa-file-contract"></i> Normativa</div>
+                    <div class="airline-tab" data-tab="pilotos"><i class="fas fa-user-tie"></i> Pilotos</div>
+                    <div class="airline-tab" data-tab="destinos"><i class="fas fa-map-marked-alt"></i> Destinos</div>
                 </div>
 
                 <div class="airline-tab-content active" id="normativa-tab">
-                    <div style="text-align: center; margin-bottom: 30px;">
+                    <div class="content-card" style="text-align: center;">
+                        <i class="fas fa-file-contract" style="font-size:32px;color:var(--eve-green);margin-bottom:18px;display:block;"></i>
+                        <h3 style="margin-top:0;border:none;padding-left:0;">Normativa de vEVE</h3>
+                        <p style="max-width:600px;margin:0 auto 24px;color:#555;line-height:1.7;">Consulta el reglamento interno de la aerolínea virtual: procedimientos, rangos, normas de vuelo y comportamiento dentro de la comunidad.</p>
                         <a href="https://drive.google.com/file/d/1Y9-fUjPowX3rp8wq2GqaYUJwXU_3QJz4/view?usp=sharing" class="download-btn" target="_blank">
                             <i class="fas fa-download"></i> Descargar Normativa de vEVE
                         </a>
@@ -1034,14 +1297,57 @@
                 </div>
 
                 <div class="airline-tab-content" id="pilotos-tab">
-                    <iframe
-                        src="https://docs.google.com/document/d/e/2PACX-1vQMhfpogJjjhSuXC9PLFmTqeetSEA53BOWD_kfm3sCl-CS4wbYwNPM9wTJhWvCAdrTvZUmTlDZzaotN/pub?embedded=true"
-                        width="100%"
-                        height="600"
-                        frameborder="0"
-                        allowfullscreen
-                        class="airline-iframe">
-                    </iframe>
+                    <div class="content-card">
+                        <h3 style="margin-top:0;border:none;padding-left:0;">Documentación para Pilotos</h3>
+                        <p style="color:#555;line-height:1.7;margin-bottom:20px;">Manuales, procedimientos y recursos pensados para nuestros pilotos.</p>
+                        <iframe
+                            src="https://docs.google.com/document/d/e/2PACX-1vQMhfpogJjjhSuXC9PLFmTqeetSEA53BOWD_kfm3sCl-CS4wbYwNPM9wTJhWvCAdrTvZUmTlDZzaotN/pub?embedded=true"
+                            width="100%"
+                            height="600"
+                            frameborder="0"
+                            allowfullscreen
+                            class="airline-iframe">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="airline-tab-content" id="destinos-tab">
+                    <div class="content-card" style="text-align:center;">
+                        <h3 style="margin-top:0;border:none;padding-left:0;">Nuestros Destinos</h3>
+                        <p style="color:#555;line-height:1.7;margin-bottom:10px;">Explora nuestras rutas fijas o simula tus propias operaciones chárter.</p>
+
+                        <div class="destinos-toggle">
+                            <button class="destinos-toggle-btn active" data-destino="fijos">Vuelos Fijos</button>
+                            <button class="destinos-toggle-btn" data-destino="charter">Vuelos Chárter</button>
+                        </div>
+                    </div>
+
+                    <div class="destinos-panel active" id="fijos-panel">
+                        <div class="flight-finder-section">
+                            <div class="flight-finder-bar">
+                                <div class="finder-field">
+                                    <label for="finder-origin">Desde</label>
+                                    <select id="finder-origin"></select>
+                                </div>
+                                <i class="fas fa-arrow-right finder-arrow"></i>
+                                <div class="finder-field">
+                                    <label for="finder-destination">Hasta</label>
+                                    <select id="finder-destination"></select>
+                                </div>
+                                <button class="finder-reset-btn" id="finder-reset">Ver todos</button>
+                            </div>
+                            <p class="finder-count" id="finder-count"></p>
+                            <div class="finder-results" id="finder-results"></div>
+                        </div>
+                    </div>
+
+                    <div class="destinos-panel" id="charter-panel">
+                        <div class="charter-info-card">
+                            <i class="fas fa-plane-departure" style="font-size:32px;color:var(--eve-green);margin-bottom:16px;display:block;"></i>
+                            <h4>Vuelos Chárter</h4>
+                            <p>Tú decides el origen, destino y avión. Simula operaciones chárter.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1205,27 +1511,6 @@
 
             <div class="career-note">Todas las convocatorias requieren un formulario y entrevista con RRHH.</div>
 
-            <div class="divider-label">Requisitos generales y proceso</div>
-
-            <div class="career-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-                <div class="career-card" style="text-align:center;">
-                    <i class="fas fa-birthday-cake" style="font-size:26px;color:var(--eve-green);margin-bottom:14px;display:block;"></i>
-                    <p style="color:#555;font-size:15px;margin:0;">15 años mínimo de edad</p>
-                </div>
-                <div class="career-card" style="text-align:center;">
-                    <i class="fas fa-clock" style="font-size:26px;color:var(--eve-green);margin-bottom:14px;display:block;"></i>
-                    <p style="color:#555;font-size:15px;margin:0;">Tener 200h en IVAO o VATSIM</p>
-                </div>
-                <div class="career-card" style="text-align:center;">
-                    <i class="fas fa-trophy" style="font-size:26px;color:var(--eve-green);margin-bottom:14px;display:block;"></i>
-                    <p style="color:#555;font-size:15px;margin:0;">Rango mínimo de entrada FS3</p>
-                </div>
-                <div class="career-card" style="text-align:center;">
-                    <i class="fas fa-language" style="font-size:26px;color:var(--eve-green);margin-bottom:14px;display:block;"></i>
-                    <p style="color:#555;font-size:15px;margin:0;">Conocimiento fluido de Castellano</p>
-                </div>
-            </div>
-
             <div class="journey-section">
                 <h4 class="journey-title">Pasos para unirse a vEVE</h4>
                 <div class="journey-steps">
@@ -1386,8 +1671,21 @@
                 });
             });
 
+            document.querySelectorAll('.destinos-toggle-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.destinos-toggle-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    document.querySelectorAll('.destinos-panel').forEach(p => p.classList.remove('active'));
+                    const panelId = this.getAttribute('data-destino') + '-panel';
+                    document.getElementById(panelId).classList.add('active');
+                });
+            });
+
+            initFlightFinder();
+
             initCarousel();
             initPlaneScroll();
+            updateTopBar();
 
             document.getElementById('gdpr-button').addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1395,6 +1693,7 @@
                 document.getElementById('politica-privacidad-content').classList.add('active');
                 window.scrollTo(0, 0);
                 document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+                updateTopBar();
             });
 
             document.getElementById('back-button').addEventListener('click', function() {
@@ -1403,6 +1702,7 @@
                 window.scrollTo(0, 0);
                 document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
                 document.querySelector('.nav-link[data-section="inicio"]').classList.add('active');
+                updateTopBar();
             });
 
             document.querySelectorAll('.footer-column a.nav-link').forEach(link => {
@@ -1424,6 +1724,7 @@
                         }
                     }
                     window.scrollTo(0, 0);
+                    updateTopBar();
                 });
             });
 
@@ -1432,6 +1733,7 @@
                 document.getElementById('registro-content').classList.add('active');
                 window.scrollTo(0, 0);
                 document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+                updateTopBar();
             });
 
             document.getElementById('register-btn').addEventListener('click', function() {
@@ -1439,6 +1741,7 @@
                 document.getElementById('registro-content').classList.add('active');
                 window.scrollTo(0, 0);
                 document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+                updateTopBar();
             });
         });
 
@@ -1454,9 +1757,17 @@
                         document.getElementById(sectionId).classList.add('active');
                     }
                     window.scrollTo(0, 0);
+                    updateTopBar();
                 }
             });
         });
+
+        // Muestra la barra "Base Madrid / crew recruiting" solo en Inicio y Registro
+        function updateTopBar() {
+            const inicioActive = document.getElementById('inicio-content').classList.contains('active');
+            const registroActive = document.getElementById('registro-content').classList.contains('active');
+            document.body.classList.toggle('bar-hidden', !(inicioActive || registroActive));
+        }
 
         // Animación del avión: se mueve de derecha a izquierda según el scroll
         function initPlaneScroll() {
@@ -1491,6 +1802,103 @@
             window.addEventListener('scroll', onScroll, { passive: true });
             window.addEventListener('resize', onScroll);
             update();
+        }
+
+        // Buscador de destinos: filtra rutas fijas por origen/destino
+        function initFlightFinder() {
+            const originSelect = document.getElementById('finder-origin');
+            const destSelect = document.getElementById('finder-destination');
+            const resultsEl = document.getElementById('finder-results');
+            const countEl = document.getElementById('finder-count');
+            const resetBtn = document.getElementById('finder-reset');
+            if (!originSelect || !destSelect || !resultsEl) return;
+
+            const airports = {
+                MAD: 'Madrid',
+                BCN: 'Barcelona',
+                LIS: 'Lisboa',
+                SJO: 'San José',
+                PUJ: 'Punta Cana',
+                XPL: 'Tegucigalpa',
+                QRO: 'Querétaro',
+                CUN: 'Cancún',
+                BKK: 'Bangkok',
+                MRU: 'Mauricio',
+                LRM: 'La Romana'
+            };
+
+            const routes = [
+                { from: 'MAD', to: 'SJO', outbound: 'EVE859', inbound: 'EVE858' },
+                { from: 'MAD', to: 'PUJ', outbound: 'EVE803', inbound: 'EVE802' },
+                { from: 'MAD', to: 'XPL', outbound: 'EVE807', inbound: 'EVE806' },
+                { from: 'MAD', to: 'QRO', outbound: 'EVE817', inbound: 'EVE816' },
+                { from: 'MAD', to: 'CUN', outbound: 'EVE815', inbound: 'EVE814' },
+                { from: 'MAD', to: 'BKK', outbound: 'EVE847', inbound: 'EVE846' },
+                { from: 'MAD', to: 'MRU', outbound: 'EVE839', inbound: 'EVE838' },
+                { from: 'BCN', to: 'PUJ', outbound: 'EVE843', inbound: 'EVE842' },
+                { from: 'BCN', to: 'XPL', outbound: 'EVE805', inbound: 'EVE804' },
+                { from: 'BCN', to: 'CUN', outbound: 'EVE883', inbound: 'EVE882' },
+                { from: 'LIS', to: 'LRM', outbound: 'OBS837', inbound: 'OBS836' },
+                { from: 'LIS', to: 'PUJ', outbound: 'OBS853', inbound: 'OBS852' },
+                { from: 'LIS', to: 'CUN', outbound: 'OBS865', inbound: 'OBS864' }
+            ];
+
+            const origins = [...new Set(routes.map(r => r.from))];
+            const destinations = [...new Set(routes.map(r => r.to))];
+
+            originSelect.innerHTML = '<option value="todos">Todos los orígenes</option>' +
+                origins.map(code => `<option value="${code}">${airports[code]} (${code})</option>`).join('');
+
+            destSelect.innerHTML = '<option value="todos">Todos los destinos</option>' +
+                destinations.map(code => `<option value="${code}">${airports[code]} (${code})</option>`).join('');
+
+            function renderResults() {
+                const originVal = originSelect.value;
+                const destVal = destSelect.value;
+
+                const filtered = routes.filter(r =>
+                    (originVal === 'todos' || r.from === originVal) &&
+                    (destVal === 'todos' || r.to === destVal)
+                );
+
+                countEl.textContent = filtered.length === 0
+                    ? 'No hay vuelos que coincidan con tu búsqueda.'
+                    : `${filtered.length} ruta${filtered.length === 1 ? '' : 's'} encontrada${filtered.length === 1 ? '' : 's'}`;
+
+                if (filtered.length === 0) {
+                    resultsEl.innerHTML = '<div class="finder-empty"><i class="fas fa-plane-slash" style="font-size:26px;margin-bottom:10px;display:block;color:#ccc;"></i>Prueba con otra combinación de origen y destino.</div>';
+                    return;
+                }
+
+                resultsEl.innerHTML = filtered.map(r => `
+                    <div class="route-card">
+                        <div class="route-card-header">
+                            <div class="route-card-cities">
+                                ${airports[r.from]} (${r.from}) <i class="fas fa-arrow-right"></i> ${airports[r.to]} (${r.to})
+                            </div>
+                            <span class="route-origin-badge">${r.from}</span>
+                        </div>
+                        <div class="route-flight-row">
+                            <span class="flight-dir">${r.from} → ${r.to}</span>
+                            <span class="flight-num">${r.outbound}</span>
+                        </div>
+                        <div class="route-flight-row">
+                            <span class="flight-dir">${r.to} → ${r.from}</span>
+                            <span class="flight-num">${r.inbound}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            originSelect.addEventListener('change', renderResults);
+            destSelect.addEventListener('change', renderResults);
+            resetBtn.addEventListener('click', function() {
+                originSelect.value = 'todos';
+                destSelect.value = 'todos';
+                renderResults();
+            });
+
+            renderResults();
         }
 
         function initCarousel() {
