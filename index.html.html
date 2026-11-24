@@ -1235,7 +1235,12 @@
             .career-grid { grid-template-columns: 1fr; }
             .journey-section { padding: 40px 20px; }
         }
-    </style>
+    .carousel-slide {
+    background-image:
+        linear-gradient(180deg, rgba(26,31,75,0.75) 0%, rgba(26,31,75,0.45) 45%, rgba(26,31,75,0.85) 100%),
+        var(--img);
+}
+.carousel-overlay { background: none; }</style>
 </head>
 <body>
     <a href="#politica-privacidad" class="gdpr-button" id="gdpr-button">GDPR</a>
@@ -1262,13 +1267,10 @@
         <div id="inicio-content" class="section active">
             <div class="hero-carousel">
                 <div class="carousel-slides">
-    <div class="carousel-slide active" style="background-image: url('carrusel-1.jpg')"></div>
-    <div class="carousel-slide" style="background-image: url('carrusel-2.jpg')"></div>
-    <div class="carousel-slide" style="background-image: url('carrusel-3.jpg')"></div>
-    <div class="carousel-slide" style="background-image: url('carrusel-4.jpg')"></div>
-    <div class="carousel-slide" style="background-image: url('carrusel-5.jpg')"></div>
-    <div class="carousel-slide" style="background-image: url('carrusel-6.jpg')"></div>
-    <div class="carousel-slide" style="background-image: url('carrusel-7.jpg')"></div>
+    <div class="carousel-slide active" style="--img: url('slide-1.jpg')"></div>
+    <div class="carousel-slide" style="--img: url('slide-2.jpg')"></div>
+    <div class="carousel-slide" style="--img: url('slide-3.jpg')"></div>
+    <div class="carousel-slide" style="--img: url('slide-4.jpg')"></div>
 </div>
 </div>
 
