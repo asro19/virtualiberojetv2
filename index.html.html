@@ -2003,36 +2003,36 @@
         }
 
         function initCarousel() {
-            const slides = document.querySelectorAll('.carousel-slide');
-            let currentSlide = 0;
-            let slideInterval;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const carousel = document.querySelector('.hero-carousel');
+    if (slides.length < 2 || !carousel) return;
 
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                slides[index].classList.add('active');
-                currentSlide = index;
-            }
+    const INTERVAL = 6000; // milisegundos entre fotos
+    let current = 0;
+    let timer = null;
 
-            function nextSlide() {
-                let nextIndex = (currentSlide + 1) % slides.length;
-                showSlide(nextIndex);
-            }
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        slides[index].classList.add('active');
+        current = index;
+    }
 
-            function startAutoPlay() {
-                setTimeout(() => {
-                    nextSlide();
-                    slideInterval = setInterval(nextSlide, 6000);
-                }, 3000);
-            }
+    function nextSlide() {
+        showSlide((current + 1) % slides.length);
+    }
 
-            function stopAutoPlay() { clearInterval(slideInterval); }
+    function stopAutoPlay() {
+        if (timer) { clearInterval(timer); timer = null; }
+    }
 
-            startAutoPlay();
+    function startAutoPlay() {
+        stopAutoPlay(); // evita temporizadores duplicados
+        timer = setInterval(nextSlide, INTERVAL);
+    }
 
-            const carousel = document.querySelector('.hero-carousel');
-            carousel.addEventListener('mouseenter', stopAutoPlay);
-            carousel.addEventListener('mouseleave', startAutoPlay);
-        }
-    </script>
+    startAutoPlay();
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+}
 </body>
 </html>
