@@ -228,6 +228,19 @@
         .efb-dot { width: 10px; height: 10px; border-radius: 10px; border: none; background: rgba(36,44,108,0.2); cursor: pointer; padding: 0; transition: all 0.25s ease; }
         .efb-dot.active { background: var(--eve-green); width: 26px; }
 
+        /* ---- EFB en modo oscuro (de la foto banner hacia abajo) ---- */
+        .efb-dark { width: 100vw; margin-left: calc(-50vw + 50%); background: var(--efb-bg); padding: 70px 0 170px; margin-bottom: -110px; }
+        .efb-dark-inner { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+        .efb-dark .efb-showcase { background: transparent; border-radius: 0; margin-top: 0; }
+        .efb-dark .efb-gallery-head { margin-top: 90px; }
+        .efb-dark .efb-gallery-head h3 { color: #ffffff; }
+        .efb-dark .efb-gallery-head p { color: rgba(255,255,255,0.65); }
+        .efb-dark .efb-slide { box-shadow: 0 0 0 1px rgba(255,255,255,0.08); }
+        .efb-dark .efb-arrow { background: transparent; border-color: rgba(255,255,255,0.35); color: #ffffff; }
+        .efb-dark .efb-arrow:hover:not(:disabled) { background: var(--eve-green); border-color: var(--eve-green); color: #ffffff; }
+        .efb-dark .efb-dot { background: rgba(255,255,255,0.25); }
+        .efb-dark .efb-dot.active { background: var(--eve-green); }
+
         /* ============ REGISTRO ============ */
         #registro-content { max-width: 950px; margin: 0 auto; }
         .register-message { background: var(--eve-light); border-radius: 20px; padding: 35px; margin: 40px 0 30px; text-align: center; }
@@ -437,9 +450,9 @@
 
         <!-- ============ AEROLINEA ============ -->
         <div id="aerolinea-content" class="section" style="padding:0;">
-            <div class="careers-banner" style="background-image:url('slide-2.jpg');">
+            <div class="careers-banner" id="airline-banner" style="background-image:url('slide-1.jpg');">
                 <div class="careers-banner-overlay">
-                    <h1>Aerolínea</h1>
+                    <h1 id="airline-banner-title">Normativa</h1>
                 </div>
             </div>
 
@@ -534,41 +547,46 @@
                 </div>
             </div>
 
-            <div class="efb-showcase">
-                <div class="efb-text">
-                    <span class="efb-eyebrow">Overview</span>
-                    <h3>La EFB de vEVE</h3>
-                    <p>Nuestra Electronic Flight Bag es la tablet virtual de cada piloto de vEVE: un único lugar donde tener a mano todo lo que necesitas antes, durante y después de cada vuelo.</p>
-                    <p>Incluye eQRH, Loadsheet, Logbook, OLB y más aplicaciones útiles para los pilotos, con una interfaz pensada para que te sientas como en la cabina de una aerolínea real.</p>
-                    <div class="efb-chips">
-                        <span class="efb-chip">eQRH</span>
-                        <span class="efb-chip">Loadsheet</span>
-                        <span class="efb-chip">Logbook</span>
-                        <span class="efb-chip">OLB</span>
-                        <span class="efb-chip">Y más…</span>
+            <div class="efb-dark">
+                <div class="efb-dark-inner">
+
+                    <div class="efb-showcase">
+                        <div class="efb-text">
+                            <h3>La EFB de vEVE</h3>
+                            <p>Nuestra Electronic Flight Bag es la tablet virtual de cada piloto de vEVE: un único lugar donde tener a mano todo lo que necesitas antes, durante y después de cada vuelo.</p>
+                            <p>Incluye eQRH, Loadsheet, Logbook, OLB y más aplicaciones útiles para los pilotos, con una interfaz pensada para que te sientas como en la cabina de una aerolínea real.</p>
+                            <div class="efb-chips">
+                                <span class="efb-chip">eQRH</span>
+                                <span class="efb-chip">Loadsheet</span>
+                                <span class="efb-chip">Logbook</span>
+                                <span class="efb-chip">OLB</span>
+                                <span class="efb-chip">Y más…</span>
+                            </div>
+                        </div>
+                        <div class="efb-visual">
+                            <img src="efb-1.jpg" alt="Electronic Flight Bag de vEVE: eQRH">
+                        </div>
                     </div>
-                </div>
-                <div class="efb-visual">
-                    <img src="efb-1.jpg" alt="Electronic Flight Bag de vEVE: eQRH">
-                </div>
-            </div>
 
-            <div class="efb-gallery-head">
-                <span class="efb-eyebrow">¡Mira qué guay!</span>
-                <h3>EFB en fotos</h3>
-                <p>Desliza o usa las flechas para echar un vistazo a cómo se ve nuestra EFB por dentro.</p>
-            </div>
+                    <div class="efb-gallery-head">
+                        <span class="efb-eyebrow">Funcionalidades</span>
+                        <h3>Cada herramienta, a un toque de distancia</h3>
+                        <p>Desliza para conocer algunas de las pantallas con las que trabajarás antes, durante y después de cada vuelo.</p>
+                    </div>
 
-            <div class="efb-gallery">
-                <div class="efb-track" id="efb-track">
-                    <figure class="efb-slide"><img src="efb-2.jpg" alt="Pantalla de inicio de la EFB de vEVE" draggable="false"><figcaption>Pantalla de inicio</figcaption></figure>
-                    <figure class="efb-slide"><img src="efb-3.jpg" alt="Loadsheet de la EFB de vEVE" draggable="false"><figcaption>Loadsheet</figcaption></figure>
-                    <figure class="efb-slide"><img src="efb-4.jpg" alt="Checklists de la EFB de vEVE" draggable="false"><figcaption>Checklists</figcaption></figure>
-                </div>
-                <div class="efb-controls">
-                    <button class="efb-arrow" id="efb-prev" type="button" aria-label="Foto anterior"><i class="fas fa-chevron-left"></i></button>
-                    <div class="efb-dots" id="efb-dots"></div>
-                    <button class="efb-arrow" id="efb-next" type="button" aria-label="Foto siguiente"><i class="fas fa-chevron-right"></i></button>
+                    <div class="efb-gallery">
+                        <div class="efb-track" id="efb-track">
+                            <figure class="efb-slide"><img src="efb-2.jpg" alt="Pantalla de inicio de la EFB de vEVE" draggable="false"><figcaption>Pantalla de inicio</figcaption></figure>
+                            <figure class="efb-slide"><img src="efb-3.jpg" alt="Loadsheet de la EFB de vEVE" draggable="false"><figcaption>Loadsheet</figcaption></figure>
+                            <figure class="efb-slide"><img src="efb-4.jpg" alt="Checklists de la EFB de vEVE" draggable="false"><figcaption>Checklists</figcaption></figure>
+                        </div>
+                        <div class="efb-controls">
+                            <button class="efb-arrow" id="efb-prev" type="button" aria-label="Foto anterior"><i class="fas fa-chevron-left"></i></button>
+                            <div class="efb-dots" id="efb-dots"></div>
+                            <button class="efb-arrow" id="efb-next" type="button" aria-label="Foto siguiente"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -903,6 +921,12 @@
             document.body.classList.toggle('bar-hidden', !(inicio || registro));
         }
 
+        var AIRLINE_BANNERS = {
+            normativa: { title: 'Normativa', img: 'slide-1.jpg' },
+            pilotos:   { title: 'Pilotos',   img: 'slide-3.jpg' },
+            destinos:  { title: 'Destinos',  img: 'slide-2.jpg' }
+        };
+
         function setAirlineTab(tab) {
             document.querySelectorAll('.airline-tab[data-tab]').forEach(function (t) {
                 t.classList.toggle('active', t.getAttribute('data-tab') === tab);
@@ -910,6 +934,13 @@
             document.querySelectorAll('.airline-tab-content').forEach(function (c) {
                 c.classList.toggle('active', c.id === tab + '-tab');
             });
+            var b = AIRLINE_BANNERS[tab];
+            var banner = document.getElementById('airline-banner');
+            var title = document.getElementById('airline-banner-title');
+            if (b && banner && title) {
+                banner.style.backgroundImage = "url('" + b.img + "')";
+                title.textContent = b.title;
+            }
         }
 
         function showSection(name, tab) {
